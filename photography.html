@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christina Jia · Photography</title>
+<meta name="description" content="Travel photography by Christina Jia. Peru, 2026, shot on a Canon R6 Mark II.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%23060807"/><circle cx="50" cy="52" r="22" fill="none" stroke="%2334d399" stroke-width="7"/><circle cx="50" cy="52" r="9" fill="%23e8edeb"/></svg>'>
+<style>
+  :root{--bg:#060807;--panel:rgba(255,255,255,.026);--line:rgba(255,255,255,.08);--line-hi:rgba(255,255,255,.17);--text:#e7ecea;--muted:#9aa8a2;--dim:#7d8a84;--green:#34d399;--mint:#a7f3d0;
+    --grad:linear-gradient(105deg,#ffffff 0%,#dde6e2 38%,#9fb1a9 72%,#cdd8d3 100%);--grad-green:linear-gradient(100deg,var(--green) 0%,var(--mint) 100%);
+    --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;--mono:"SF Mono",ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;
+    background-image:radial-gradient(52% 44% at 82% -6%,rgba(52,211,153,.07),transparent 62%),radial-gradient(46% 40% at 4% 16%,rgba(148,163,158,.07),transparent 60%)}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;z-index:5;backdrop-filter:blur(14px);background:rgba(6,8,7,.72);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--mono);font-size:.95rem;text-decoration:none;color:var(--text)}
+  .logo b{font-weight:700}
+  .back{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--green)}
+  header{padding:72px 0 36px}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--grad-green)}
+  h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:800;letter-spacing:-.025em;line-height:1.08}
+  h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);max-width:640px;margin-top:18px;font-size:1.02rem}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+  .chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+  .grid{columns:3;column-gap:14px;padding-bottom:80px}
+  .g{break-inside:avoid;margin:0 0 14px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--panel);position:relative;cursor:zoom-in;
+    opacity:0;transform:translateY(14px);animation:in .7s cubic-bezier(.2,.7,.3,1) forwards;animation-delay:var(--d,0s)}
+  @keyframes in{to{opacity:1;transform:none}}
+  .g img{width:100%;display:block;filter:saturate(.92) contrast(1.03);transition:transform .8s cubic-bezier(.2,.7,.3,1),filter .5s}
+  .g:hover img{transform:scale(1.035);filter:saturate(1) contrast(1.05)}
+  .g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text);
+    background:linear-gradient(transparent,rgba(0,0,0,.72));opacity:0;transition:opacity .35s}
+  .g:hover figcaption{opacity:1}
+  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--dim);font-size:.82rem}
+  footer .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:50;background:rgba(4,6,5,.94);display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+  .lb.on{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .lb .nav-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid var(--line-hi);background:rgba(255,255,255,.04);color:var(--text);font-size:1.3rem;display:grid;place-items:center;cursor:pointer;user-select:none}
+  .lb .prev{left:22px} .lb .next{right:22px}
+  @media (max-width:960px){.grid{columns:2}}
+  @media (max-width:600px){.grid{columns:1} .lb .nav-btn{display:none}}
+  @media (prefers-reduced-motion:reduce){.g{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="logo" href="index.html"><b>christina</b>.jia<span style="color:var(--green)">()</span></a>
+  <a class="back" href="index.html#photos">← Back to site</a>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Photography</div>
+  <h1>Peru, <span class="grad">in the clouds</span>.</h1>
+  <p class="lead">Cusco, the Sacred Valley, and Machu Picchu. Shot on a Canon R6 Mark II, edited lightly.
+     This is the first set I've moved over; more trips are coming as I dig through the archive.</p>
+  <div class="meta"><span class="chip">Peru · 2026</span><span class="chip">Canon R6 Mark II</span><span class="chip">20 frames</span></div>
+</div></header>
+
+<main class="wrap">
+  <div class="grid" id="grid">
+      <figure class="g" style="--d:0.05s"><img src="photos/peru-01.jpg" alt="Sacred Valley, Peru" loading="lazy" data-i="0"><figcaption>Sacred Valley, Peru</figcaption></figure>
+      <figure class="g" style="--d:0.10s"><img src="photos/peru-02.jpg" alt="Cusco, Peru" loading="lazy" data-i="1"><figcaption>Cusco, Peru</figcaption></figure>
+      <figure class="g" style="--d:0.15s"><img src="photos/peru-03.jpg" alt="Alpaca, Cusco" loading="lazy" data-i="2"><figcaption>Alpaca, Cusco</figcaption></figure>
+      <figure class="g" style="--d:0.20s"><img src="photos/peru-04.jpg" alt="Plaza de Armas at night, Cusco" loading="lazy" data-i="3"><figcaption>Plaza de Armas at night, Cusco</figcaption></figure>
+      <figure class="g" style="--d:0.25s"><img src="photos/peru-05.jpg" alt="Pisac, Sacred Valley" loading="lazy" data-i="4"><figcaption>Pisac, Sacred Valley</figcaption></figure>
+      <figure class="g" style="--d:0.00s"><img src="photos/peru-06.jpg" alt="Machu Picchu" loading="lazy" data-i="5"><figcaption>Machu Picchu</figcaption></figure>
+      <figure class="g" style="--d:0.05s"><img src="photos/peru-07.jpg" alt="Moray terraces" loading="lazy" data-i="6"><figcaption>Moray terraces</figcaption></figure>
+      <figure class="g" style="--d:0.10s"><img src="photos/peru-08.jpg" alt="Cusco streets" loading="lazy" data-i="7"><figcaption>Cusco streets</figcaption></figure>
+      <figure class="g" style="--d:0.15s"><img src="photos/peru-09.jpg" alt="Machu Picchu in the clouds" loading="lazy" data-i="8"><figcaption>Machu Picchu in the clouds</figcaption></figure>
+      <figure class="g" style="--d:0.20s"><img src="photos/peru-10.jpg" alt="Machu Picchu" loading="lazy" data-i="9"><figcaption>Machu Picchu</figcaption></figure>
+      <figure class="g" style="--d:0.25s"><img src="photos/peru-11.jpg" alt="Pisac terraces" loading="lazy" data-i="10"><figcaption>Pisac terraces</figcaption></figure>
+      <figure class="g" style="--d:0.00s"><img src="photos/peru-12.jpg" alt="Alpaca, Sacred Valley" loading="lazy" data-i="11"><figcaption>Alpaca, Sacred Valley</figcaption></figure>
+      <figure class="g" style="--d:0.05s"><img src="photos/peru-13.jpg" alt="Machu Picchu" loading="lazy" data-i="12"><figcaption>Machu Picchu</figcaption></figure>
+      <figure class="g" style="--d:0.10s"><img src="photos/peru-14.jpg" alt="Cusco" loading="lazy" data-i="13"><figcaption>Cusco</figcaption></figure>
+      <figure class="g" style="--d:0.15s"><img src="photos/peru-15.jpg" alt="Cusco courtyard" loading="lazy" data-i="14"><figcaption>Cusco courtyard</figcaption></figure>
+      <figure class="g" style="--d:0.20s"><img src="photos/peru-16.jpg" alt="Ollantaytambo" loading="lazy" data-i="15"><figcaption>Ollantaytambo</figcaption></figure>
+      <figure class="g" style="--d:0.25s"><img src="photos/peru-17.jpg" alt="Ollantaytambo" loading="lazy" data-i="16"><figcaption>Ollantaytambo</figcaption></figure>
+      <figure class="g" style="--d:0.00s"><img src="photos/peru-18.jpg" alt="Sacsayhuamán" loading="lazy" data-i="17"><figcaption>Sacsayhuamán</figcaption></figure>
+      <figure class="g" style="--d:0.05s"><img src="photos/peru-19.jpg" alt="Alpaca" loading="lazy" data-i="18"><figcaption>Alpaca</figcaption></figure>
+      <figure class="g" style="--d:0.10s"><img src="photos/peru-20.jpg" alt="Ollantaytambo" loading="lazy" data-i="19"><figcaption>Ollantaytambo</figcaption></figure>
+  </div>
+</main>
+
+<footer>© 2026 Christina Jia · all photographs <span class="grad">mine</span></footer>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <div class="nav-btn prev" id="prev">‹</div>
+  <img id="lbimg" alt="">
+  <div class="nav-btn next" id="next">›</div>
+  <div class="cap" id="lbcap"></div>
+</div>
+
+<script>
+(function(){
+  var imgs = Array.prototype.slice.call(document.querySelectorAll("#grid img"));
+  var lb = document.getElementById("lb"), lbimg = document.getElementById("lbimg"), cap = document.getElementById("lbcap");
+  var cur = 0;
+  function show(i){ cur = (i + imgs.length) % imgs.length; lbimg.src = imgs[cur].src; lbimg.alt = imgs[cur].alt; cap.textContent = imgs[cur].alt; lb.classList.add("on"); lb.setAttribute("aria-hidden","false"); }
+  function hide(){ lb.classList.remove("on"); lb.setAttribute("aria-hidden","true"); }
+  imgs.forEach(function(im, i){ im.parentElement.addEventListener("click", function(){ show(i); }); });
+  lb.addEventListener("click", function(e){ if (e.target === lb || e.target === lbimg) hide(); });
+  document.getElementById("prev").addEventListener("click", function(e){ e.stopPropagation(); show(cur - 1); });
+  document.getElementById("next").addEventListener("click", function(e){ e.stopPropagation(); show(cur + 1); });
+  document.addEventListener("keydown", function(e){
+    if (!lb.classList.contains("on")) return;
+    if (e.key === "Escape") hide(); else if (e.key === "ArrowLeft") show(cur - 1); else if (e.key === "ArrowRight") show(cur + 1);
+  });
+})();
+</script>
+</body>
+</html>
